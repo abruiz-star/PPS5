@@ -26,3 +26,8 @@ jobs:
 
       - name: Escaneo de dependencias
         run: npm audit || true
+        
+      - name: SAST
+        run: |
+          pip install semgrep
+          semgrep --config=auto
