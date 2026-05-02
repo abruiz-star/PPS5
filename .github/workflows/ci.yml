@@ -4,6 +4,9 @@ on:
   push:
     branches: [ desarrollo ]
   workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   test:
