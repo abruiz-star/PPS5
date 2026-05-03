@@ -1,6 +1,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
+const he = require('he');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -80,7 +82,7 @@ app.post('/login', (req, res) => {
     <html>
       <head><title>Bienvenido</title></head>
       <body>
-        <h1>Bienvenido, ${xss(username)}</h1>
+        <h1>Bienvenido, ${he.escape(username)}</h1>
         <p>Login simulado correctamente.</p>
         <p><a href="/">Ir al inicio</a></p>
       </body>
@@ -180,7 +182,7 @@ app.get('/search', (req, res) => {
     <html>
       <head><title>Búsqueda</title></head>
       <body>
-        <h1>Resultados de búsqueda para: ${xss(q)}</h1>
+        <h1>Resultados de búsqueda para: ${he.escape(q)}</h1>
         <ul>${items}</ul>
         <p><a href="/">Volver</a></p>
       </body>
