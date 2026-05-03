@@ -9,6 +9,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
+app.use((req, res, next) => {
+  res.setHeader("Permissions-Policy", "geolocation=(), microphone=()");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
+  res.setHeader("Cache-Control", "no-store");
+  next();
+});
 app.disable('x-powered-by');
 const csrfProtection = csrf({ cookie: true });
 const xss = require('xss'); 
