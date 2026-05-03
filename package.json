@@ -13,6 +13,7 @@
     "csurf": "^1.2.2",
     "express": "^4.22.1",
     "he": "^1.2.0",
+    "helmet": "^8.1.0",
     "xss": "^1.0.15"
   },
   "devDependencies": {
