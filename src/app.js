@@ -181,7 +181,7 @@ app.get('/search', (req, res) => {
       <head><title>Búsqueda</title></head>
       <body>
         <h1>Resultados de búsqueda para: ${xss(q)}</h1>
-        <ul>${xss(items)}</ul>
+        <ul>${items}</ul>
         <p><a href="/">Volver</a></p>
       </body>
     </html>
