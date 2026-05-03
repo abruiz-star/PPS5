@@ -2,6 +2,9 @@ version: '3.8'
 services:
   prometheus:
     image: prom/prometheus:latest
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
     container_name: prometheus
     restart: unless-stopped
     ports:
@@ -10,6 +13,9 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
   grafana:
     image: grafana/grafana:latest
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
     container_name: grafana
     restart: unless-stopped
     ports:
