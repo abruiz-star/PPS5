@@ -32,8 +32,8 @@ jobs:
         
       - name: SAST
         run: |
-          pip install semgrep
-          semgrep --config=auto
+           pip install semgrep --break-system-packages
+           semgrep --config=auto
       - name: Iniciar aplicación
         run: |
           npm start &
