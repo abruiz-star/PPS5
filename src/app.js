@@ -1,14 +1,15 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
+const helmet = require("helmet");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(helmet());
 app.use(cookieParser());
-
+app.disable('x-powered-by');
 const csrfProtection = csrf({ cookie: true });
 const xss = require('xss'); 
 
