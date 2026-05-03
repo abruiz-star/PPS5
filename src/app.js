@@ -168,8 +168,8 @@ app.get('/search', (req, res) => {
         .map(
           (t) => `
             <li>
-              <strong>${t.title}</strong><br/>
-              ${t.description}
+              <strong>${xss(t.title)}</strong><br/>
+              ${xss(t.description)}
             </li>
           `
         )
@@ -216,7 +216,7 @@ app.get('/comments', (req, res) => {
       <head><title>Comentarios</title></head>
       <body>
         <h1>Comentarios</h1>
-        <ul>${xss(items)}</ul>
+        <ul>${items}</ul>
         <p><a href="/">Volver</a></p>
       </body>
     </html>
